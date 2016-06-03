@@ -21,7 +21,7 @@ mongo.MongoClient.connect(dburl, function(err, db) {
   
   urlapi(app, db);
   
-  var port = 5000;
+  var port = process.env.PORT || 8080;
   app.listen(port, function() {
     console.log('Node.js listening on port ' + port);
   });
