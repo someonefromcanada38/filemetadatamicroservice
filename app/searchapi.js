@@ -29,7 +29,8 @@ module.exports = function(app, history) {
   function searchHandler(req, res)
   {
     var query = req.params.query;
-    var size = req.query.offset || 10;
+    var size = req.query.size ||10;
+    var paginate = req.query.offset || 0;
     //var google = images(process.env.API_KEY, process.env.API_ID);
 var searchQuery = {
   "search": query,
@@ -44,7 +45,8 @@ console.log('searchnow')
 var bingsearch = new bing(process.env.IMG_KEY);
 
     bingsearch.images(query, {
-        top: size
+        top: size,
+        skip: paginate
       },
       function(err, results) {
         if (err) throw err;
