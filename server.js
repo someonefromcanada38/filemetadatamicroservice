@@ -17,7 +17,7 @@ var history = mongoose.model('history', historySchema);
 
 mongoose.connect(dbsearches);
 db.on('error', console.error.bind(console, 'connection error:'));
-con
+console.log("db connected");
 db.once('open', function() {
   // we're connected!
 });
